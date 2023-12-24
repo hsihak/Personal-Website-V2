@@ -57,12 +57,6 @@ export default async function Projects() {
                     
                     <article key={project._id} className="overflow-hidden dark:border-zinc-600 rounded-lg border border-gray-100 bg-white shadow-lg dark:bg-black dark:shadow-gray-700 shadow-indigo-100 transition duration-300 delay-150 hover:delay-200 hover:scale-105">
                         <div className="h-56 w-full relative">
-                            {/* <Image 
-                            width={500}
-                            height={500}
-                            src={project.imageUrl} 
-                            alt="Project Overview" 
-                            className="w-full h-full object-cover"/> */}
                             <BlurImage imageSrc={project.imageUrl}/>
                             
                         </div>
