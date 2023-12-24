@@ -6,6 +6,7 @@ import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { client } from './lib/sanity';
+import { motion } from "framer-motion";
 
 interface Data {
   name: string;
@@ -51,6 +52,16 @@ export default function Home() {
 
   return (
     <div className='divide-y divide-gray-500 dark:divide-gray-700'>
+      <motion.div
+        initial={{opacity: 0, scale: 0}}
+        animate={{opacity: 1, scale: 1}}
+        transition={{
+          type: "tween",
+          duration: 0.5,
+        }}
+        >
+
+      
       <div className='space-y-2 pt-5 pb-8 md:space-x-5'>
         <h1 className='text-3xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-13'>
           About Me
@@ -107,6 +118,7 @@ export default function Home() {
           </div>
         </article>
       ))}
+      </motion.div>
     </div>
   );
 }
