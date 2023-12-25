@@ -1,57 +1,27 @@
 "use client";
-import Image from 'next/image'
-import ProfilePhoto from '@/public/Profile-Photo.jpg';
+import React, { useState } from 'react';
+import {motion} from "framer-motion";
+import BlurImage from "./components/BlurImage";
+import ProfilePhoto from '../public/Profile-Photo.jpg';
+import Image from "next/image";
 import { MdEmail } from 'react-icons/md';
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { client } from './lib/sanity';
-import { motion } from "framer-motion";
 
-interface Data {
-  name: string;
-  jobTitle: string;
-  email: string;
-  github: string;
-  linkedin: string;
-  twitter: string;
-  paragraphOne: string;
-  paragraphTwo: string;
-  paragraphThree: string;
-}
 
 export default function Home() {
-  const [userData, setUserData] = useState<Data[]>([]);
 
-  useEffect(() => {
-    const fetchUserInfo = async () => {
-      const query = `*[_type == 'about'] {
-        name,
-        jobTitle,
-        email,
-        github,
-        linkedin,
-        twitter,
-        paragraphOne,
-        paragraphTwo,
-        paragraphThree,
-      }`;
-      
-      try {
-        const data = await client.fetch(query);
-        setUserData(data);
-      } catch (error) {
-        console.error('Error fetching user info:', error);
-      }
-    };
+  const [isHovered, setIsHovered] = useState(false);
 
-    fetchUserInfo();
-  }, []);
 
-  console.log('User Info Data: ', userData);
+  const imageStyle = {
+    boxShadow: isHovered ? 'rgb(129, 140, 248) 0px 0px 0px 0px' : 'rgb(129, 140, 248) 15px 5px 0px 0px',
+    transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
+    transform: isHovered ? 'scale(1.10)' : 'scale(1)',
+  };
 
   return (
-    <div className='divide-y divide-gray-500 dark:divide-gray-700'>
+    <div className='divide-y divide-gray-500 dark:divide-gray-700 pt-32'>
       <motion.div
         initial={{opacity: 0, scale: 0}}
         animate={{opacity: 1, scale: 1}}
@@ -60,33 +30,45 @@ export default function Home() {
           duration: 0.5,
         }}
         >
-
-      
-      <div className='space-y-2 pt-5 pb-8 md:space-x-5'>
-        <h1 className='text-3xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-13'>
-          About Me
-        </h1>
-      </div>
-      {userData.map((user, index) => (
-        <article key={index} className='items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0'>
-          <div className='flex flex-col items-center pt-8'>
-            <Image src={ProfilePhoto} alt={`${user.name} Profile Photo`} className='h-48 w-48 rounded-2xl object-cover object-top'/>
-            <h1 className='text-3xl font-bold pt-4'>{user.name}</h1>
-            <div className='md:text-lg text-gray-800  dark:text-gray-400 mb-2 md:mt-1'>
-              <h3>{user.jobTitle}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-5 justify-items-center">
+            <div className="grid uppercase col-span-3">
+              <div className="grid gap-6">
+                <h2 className=" text-3xl">Hello. I'm</h2>
+                <h1 className="text-4xl md:text-7xl font-semibold">Hang 👋</h1>
+              </div>
+              <div className="grid place-content-center gap-2">
+                <p className="text-2xl md:text-4xl">Aspiring <span className=" bg-indigo-300 border border-indigo-800 dark:bg-indigo-600">Full Stack</span> Developer</p>
+                <p className="text-2xl md:text-4xl">Based in Waterloo</p>
+              </div>
             </div>
-            <div className='flex items-center gap-4 text-2xl'>
-            <Link href={'mailto:s.hsihak@gmail.com'} legacyBehavior>
+            <div className="grid col-span-2 justify-items-center pt-8 md:pt-0">
+              <Link href='/about'>
+                <Image 
+                src={ProfilePhoto} 
+                alt={`Profile Photo`} 
+                className='h-48 w-48 rounded-full object-cover object-top cursor-pointer'
+                style={imageStyle}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                />
+              </Link>
+              <h1 className='text-3xl font-bold pt-4'>Hangsihak Sin</h1>
+              <div className='md:text-lg text-gray-800  dark:text-gray-400 mb-2 md:mt-1'>
+                <h3>2nd Year Bachelor of Computer Science</h3>
+              </div>
+
+              <div className='flex items-center gap-4 text-2xl'>
+                <Link href={'mailto:s.hsihak@gmail.com'} legacyBehavior>
                     <a
-                      className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
+                      className='p-1.5 md:p-2 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400'
                       target={'_blank'}>
                       <MdEmail className=' hover:fill-blue-500' />
                     </a>
-                  </Link>
+                </Link>
 
                 <Link href={'https://github.com/hsihak'} legacyBehavior>
                   <a
-                    className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
+                    className='p-1.5 md:p-2 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400'
                     target={'_blank'}>
                     <BsGithub className=' hover:fill-purple-600' />
                   </a>
@@ -94,7 +76,7 @@ export default function Home() {
 
                 <Link href={'https://www.linkedin.com/in/hangsin/'} legacyBehavior>
                   <a
-                    className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
+                    className='p-1.5 md:p-2 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400'
                     target={'_blank'}>
                     <BsLinkedin className=' hover:fill-blue-700' />
                   </a>
@@ -102,23 +84,15 @@ export default function Home() {
 
                 <Link href={'https://twitter.com/'} legacyBehavior>
                   <a
-                    className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
+                    className='p-1.5 md:p-2 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400'
                     target={'_blank'}>
                     <BsTwitter className=' hover:fill-sky-400' />
                   </a>
                 </Link>
             </div>
-          </div>
-          <div className='md:text-lg text-gray-800 dark:text-gray-400 mb-2 md:mt-1 col-span-2 lg:pr-8'>
-            <div className='font-normal lg:pt-4 pb-8 lg:col-span-2 text-base mx-auto lg:mx-0 grid gap-4'>
-              <p>{user.paragraphOne}</p>
-              <p>{user.paragraphTwo}</p>
-              <p>{user.paragraphThree}</p>
             </div>
           </div>
-        </article>
-      ))}
-      </motion.div>
+        </motion.div>
     </div>
-  );
+  )
 }
