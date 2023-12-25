@@ -17,7 +17,7 @@ return (
                             <div className="flex items-center">
                                 <Link href="/">
                                     <h1 className="text-3xl font-bold">
-                                        Hangsihak <span className="text-indigo-500">Sin</span>
+                                        {"{"} H<span className="text-indigo-500 dark:indigo-400">S </span>{"}."}
                                     </h1>
                                 </Link>
                             </div>
@@ -27,6 +27,12 @@ return (
                                 prefetch 
                                 className={`${pathname == "/" ? 'border-indigo-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium' : 'border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium'}`}>
                                     Home
+                                </Link>
+                                <Link 
+                                href="/about" 
+                                prefetch 
+                                className={`${pathname == "/about" ? 'border-indigo-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium' : 'border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium'}`}>
+                                    About
                                 </Link>
                                 <Link 
                                 href="/projects" 
@@ -61,6 +67,11 @@ return (
                             ? 'bg-indigo-50 border-indigo-500 text-indigo-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800' 
                             : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 dark:hover:text-white block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white'}`}>
                             Home
+                        </Link>
+                        <Link href="/about" prefetch className={`${pathname == "/" 
+                            ? 'bg-indigo-50 border-indigo-500 text-indigo-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800' 
+                            : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 dark:hover:text-white block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white'}`}>
+                            About
                         </Link>
                         <Link href="/projects" prefetch className={`${pathname == "/" 
                             ? 'bg-indigo-50 border-indigo-500 text-indigo-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800' 

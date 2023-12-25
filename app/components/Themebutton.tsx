@@ -6,6 +6,15 @@ import { useEffect, useState } from "react";
 export default function ThemeButton() {
     const { setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const buttonStyle = {
+        boxShadow: isHovered ? 'rgb(129, 140, 248) 0px 0px 0px 0px' : 'rgb(129, 140, 248) 6px 5px 0px 0px',
+        transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
+        transform: isHovered ? 'scale(1.10)' : 'scale(1)',
+    }
+
+
 
     useEffect(() => {
         setMounted(true);
@@ -14,12 +23,13 @@ export default function ThemeButton() {
     if (!mounted) return null;
 
     return (
-        <div className="group relative inline-block hover:cursor-pointer"> 
-            <div className="absolute top-1 left-1 -right-1 -bottom-1 bg-indigo-500 rounded-lg transition-all duration-100 group-hover:top-0 group-hover:left-0 group-hover:right-0 group-hover:bottom-0"> 
-            </div>
+        <div className="group relative inline-block hover:cursor-pointer"
+            onMouseEnter={() => setIsHovered(true)}
+             onMouseLeave={() => setIsHovered(false)}> 
             <button 
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                 className="relative z-10 bg-slate-400 border border-gray p-2 rounded-lg"
+                style={buttonStyle}
             >
                 {resolvedTheme === 'dark' ? (
                     <span className="text-xl">🌤️</span>
