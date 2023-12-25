@@ -70,13 +70,13 @@ export default function About() {
       {userData.map((user, index) => (
         <article key={index} className='items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0'>
           <div className='flex flex-col items-center pt-8'>
-            <Image src={ProfilePhoto} alt={`${user.name} Profile Photo`} className='h-48 w-48 rounded-2xl object-cover object-top'/>
+            <Image src={ProfilePhoto} alt={`${user.name} Profile Photo`} className='h-48 w-48 rounded-full object-cover object-top shadow-indigo-400 shadow-lg '/>
             <h1 className='text-3xl font-bold pt-4'>{user.name}</h1>
             <div className='md:text-lg text-gray-800  dark:text-gray-400 mb-2 md:mt-1'>
               <h3>{user.jobTitle}</h3>
             </div>
             <div className='flex items-center gap-4 text-2xl'>
-            <Link href={'mailto:s.hsihak@gmail.com'} legacyBehavior>
+              <Link href={'mailto:s.hsihak@gmail.com'} legacyBehavior>
                     <a
                       className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
                       target={'_blank'}>

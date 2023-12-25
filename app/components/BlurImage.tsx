@@ -17,7 +17,7 @@ export default function BlurImage({ imageSrc }: ImageProps) {
                     src={imageSrc}
                     fill
                     className={`
-                        duration-700 ease-in-out group-hover:opacity-75 object-cover
+                        duration-700 ease-in-out group-hover:opacity-75 object-cover rounded-md
                         ${isLoading ? "scale-110 blur-2xl grayscale" : "scale-100 blur-0 grayscale-0"}
                     `}
                     onLoad={() => setLoading(false)}
