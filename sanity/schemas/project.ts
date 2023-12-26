@@ -9,9 +9,40 @@ export default {
             title: 'Title'
         },
         {
+            name: 'projectStatus',
+            type: 'string',
+            title: 'ProjectStatus',
+        },
+        {
             name: 'overview',
             type: 'string',
             title: 'Overview',
+        },
+        {
+            name: 'overviewAuthor',
+            type: 'string',
+            title: 'OverviewAuthor',
+        },
+        {
+            name: 'members',
+            type: 'array',
+            title: 'Members',
+            of: [{type: 'string'}],
+        },
+        {
+            name: 'date',
+            type: 'string',
+            title: 'date',
+            options: {
+                dateFormat: 'YYYY-MM-DD',
+                calendarTodayLabel: 'Today'
+            }
+        },
+        {
+            name: 'technologies',
+            type: 'array',
+            title: 'Technologies',
+            of: [{type: 'string'}],
         },
         {
             name: 'image',
@@ -19,9 +50,24 @@ export default {
             title: 'Image',
         },
         {
-            name: 'link',
+            name: 'githubLink',
             type: 'string',
-            title: 'Link',
+            title: 'Github-Link',
+        },
+        {
+            name: 'demoLink',
+            type: 'string',
+            title: 'Demo-Link'
+        },
+        {
+            name: 'devPostLink',
+            type: 'string',
+            title: 'DevPost-Link',
+        },
+        {
+            name: 'prototypeLink',
+            type: 'string',
+            title: 'Prototype-Link',
         },
         {
             title: 'Slug',

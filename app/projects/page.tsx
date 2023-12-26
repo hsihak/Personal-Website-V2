@@ -6,6 +6,7 @@ import { BsGithub } from 'react-icons/bs';
 import { MdOutlineTerminal } from "react-icons/md";
 import Link from "next/link";
 import BackButton from "../components/Backbutton";
+import { SiAdobexd, SiDevpost } from "react-icons/si";
 
 interface Slug {
     current: string;
@@ -15,7 +16,10 @@ interface Slug {
 interface Data {
     title: string,
     overview: string,
-    link: string,
+    githubLink: string,
+    demoLink: string,
+    devPostLink: string,
+    prototypeLink: string,
     _id: string,
     imageUrl: string,
     slug: Slug;
@@ -25,7 +29,10 @@ async function getProjects() {
     const query = `*[_type == "project"] {
         title,
           overview,
-          link,
+          githubLink,
+          demoLink,
+          devPostLink,
+          prototypeLink,
           _id,
           "imageUrl": image.asset->url,
           slug
@@ -73,18 +80,45 @@ export default async function Projects() {
                                 <p className="line-clamp-3 bg-indigo-300 rounded-md px-4 py-1 text-center dark:bg-indigo-700 ml-[-40px] relative z-20 bg-opacity-50">{project.overview}</p>
 
                                 <div className="text-2xl flex gap-6">
-                                    <Link href={project.link} legacyBehavior>
-                                        <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
-                                            target={'_blank'}>
-                                            <BsGithub className='hover:fill-purple-600'/>
-                                        </a>
-                                    </Link>
-                                    <Link href={project.link} legacyBehavior>
-                                        <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
-                                            target={'_blank'}>
-                                            <MdOutlineTerminal className='hover:fill-blue-400'/>
-                                        </a>
-                                    </Link>
+                                    {/* Github link */}
+                                    {project.githubLink != undefined && (
+                                        <Link href={project.githubLink} legacyBehavior>
+                                            <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
+                                                target={'_blank'}>
+                                                <BsGithub className='hover:fill-purple-600'/>
+                                            </a>
+                                        </Link>
+                                    )}
+
+                                    {/* Live Demo Link */}
+                                    {project.demoLink != undefined && (
+                                        <Link href={project.demoLink} legacyBehavior>
+                                            <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
+                                                target={'_blank'}>
+                                                <MdOutlineTerminal className='hover:fill-blue-400'/>
+                                            </a>
+                                        </Link>
+                                    )}
+
+                                    {/* DevPost Link */}
+                                    {project.devPostLink != undefined && (
+                                        <Link href={project.devPostLink} legacyBehavior>
+                                            <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
+                                                target={'_blank'}>
+                                                <SiDevpost className='hover:fill-blue-400'/>
+                                            </a>
+                                        </Link>
+                                    )}
+
+                                    {/* Prototype Link */}
+                                    {project.prototypeLink != undefined && (
+                                        <Link href={project.prototypeLink} legacyBehavior>
+                                            <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
+                                                target={'_blank'}>
+                                                <SiAdobexd className=' hover:fill-fuchsia-900'/>
+                                            </a>
+                                        </Link>
+                                    )}
                                 </div>
                                 <ProjectButton slug={project.slug}/>
                             </div>
@@ -96,18 +130,45 @@ export default async function Projects() {
                                 <h2 className="text-4xl font-bold">{project.title}</h2>
                                 <p className="line-clamp-3 bg-indigo-300 rounded-md px-4 py-1 text-center dark:bg-indigo-700 mr-[-40px] relative z-20 bg-opacity-50">{project.overview}</p>
                                 <div className="text-2xl flex gap-4">
-                                    <Link href={project.link} legacyBehavior>
-                                        <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
-                                            target={'_blank'}>
-                                            <BsGithub className='hover:fill-purple-600'/>
-                                        </a>
-                                    </Link>
-                                    <Link href={project.link} legacyBehavior>
-                                        <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
-                                            target={'_blank'}>
-                                            <MdOutlineTerminal className='hover:fill-blue-400'/>
-                                        </a>
-                                    </Link>
+                                    {/* Github link */}
+                                    {project.githubLink != undefined && (
+                                        <Link href={project.githubLink} legacyBehavior>
+                                            <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
+                                                target={'_blank'}>
+                                                <BsGithub className='hover:fill-purple-600'/>
+                                            </a>
+                                        </Link>
+                                    )}
+
+                                    {/* Live Demo Link */}
+                                    {project.demoLink != undefined && (
+                                        <Link href={project.demoLink} legacyBehavior>
+                                            <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
+                                                target={'_blank'}>
+                                                <MdOutlineTerminal className='hover:fill-blue-400'/>
+                                            </a>
+                                        </Link>
+                                    )}
+
+                                    {/* DevPost Link */}
+                                    {project.devPostLink != undefined && (
+                                        <Link href={project.devPostLink} legacyBehavior>
+                                            <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
+                                                target={'_blank'}>
+                                                <SiDevpost className='hover:fill-blue-400'/>
+                                            </a>
+                                        </Link>
+                                    )}
+
+                                    {/* Prototype Link */}
+                                    {project.prototypeLink != undefined && (
+                                        <Link href={project.prototypeLink} legacyBehavior>
+                                            <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
+                                                target={'_blank'}>
+                                                <SiAdobexd className=' hover:fill-fuchsia-900'/>
+                                            </a>
+                                        </Link>
+                                    )}
                                 </div>
                                 <ProjectButton slug={project.slug}/>
                             </div>
@@ -119,7 +180,7 @@ export default async function Projects() {
                         </>
                     )}
                 </article>
-))}
+                ))}
 
             </div>
         </div>            
