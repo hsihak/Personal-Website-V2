@@ -36,6 +36,8 @@ async function getProject(slug: string) {
       return data;
 }
 
+export const revalidate = 60;
+
 export default async function ProjectDetails ({params}: Props) {
     
 
@@ -43,17 +45,6 @@ export default async function ProjectDetails ({params}: Props) {
 
     console.log("Loading from Project Details:", params.slug)
 
-    const customStatusLabel = {
-        content: '""', // This is a workaround as pseudo-elements can't be added directly via inline styles
-        position: 'absolute',
-        right: '-10px', // Adjust as needed
-        top: '50%',
-        borderWidth: '10px', // Size of the arrow
-        borderStyle: 'solid',
-        borderColor: 'transparent transparent transparent #48BB78', // Use the Tailwind green-500 color
-        transform: 'translateY(-50%)'
-    };
-    
     console.log(project.demoLink)
 
     return (
@@ -61,6 +52,17 @@ export default async function ProjectDetails ({params}: Props) {
         <div className="flex items-center justify-center flex-col  mt-10 pt-10 gap-4">
             <h1 className="text-3xl tracking-widest">{project.title}</h1>
             <hr className=" border-2 rounded-lg border-indigo-300 w-1/12 mx-auto" />
+            {/* Article Written by: */}
+            <p>Article by: {project.overviewAuthor}</p>
+
+            {/* Program Author: */}
+            <span>Authors:
+                {project.members.map((member: string, index: number) => (
+                    <p key={index}>{member}</p>
+                ))}
+
+            </span>
+
             {/* Project Status Label */}
             <div className={`${project.projectStatus.trim().toLowerCase() == 'completed' ? 'bg-green-400 text-white' : 'bg-amber-500 text-white'} px-4 py-2 relative arrow-box rounded-lg`}>
                 <p>{project.projectStatus}</p>
