@@ -5,6 +5,7 @@ import ProjectButton from "../components/Projectbutton";
 import { BsGithub } from 'react-icons/bs';
 import { MdOutlineTerminal } from "react-icons/md";
 import Link from "next/link";
+import BackButton from "../components/Backbutton";
 
 interface Slug {
     current: string;
@@ -54,10 +55,10 @@ export default async function Projects() {
             <div className='items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0'>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-1 lg:gap-10 pt-8">
+            <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-1 lg:gap-16 pt-8">
                 
             {data.map((project, index) => (
-                <article key={index} className="flex flex-col md:flex-row w-full">
+                <article key={index} className="flex flex-col md:flex-row w-full relative">
                     {index % 2 === 0 ? (
                         <>
                             {/* Image on the left for even index */}
@@ -66,9 +67,11 @@ export default async function Projects() {
                             </div>
 
                             {/* Text on the right for even index */}
-                            <div className="flex items-center flex-col justify-center w-full md:w-2/5 gap-4 px-4">
+                            
+                            <div className="flex items-center flex-col justify-center w-full md:w-2/5 gap-4">
                                 <h2 className="text-4xl font-bold">{project.title}</h2>
-                                <p className="line-clamp-3 bg-indigo-200 rounded-md  px-4 py-1 text-center">{project.overview}</p>
+                                <p className="line-clamp-3 bg-indigo-300 rounded-md px-4 py-1 text-center dark:bg-indigo-700 ml-[-40px] relative z-20 bg-opacity-50">{project.overview}</p>
+
                                 <div className="text-2xl flex gap-6">
                                     <Link href={project.link} legacyBehavior>
                                         <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
@@ -79,7 +82,7 @@ export default async function Projects() {
                                     <Link href={project.link} legacyBehavior>
                                         <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
                                             target={'_blank'}>
-                                            <MdOutlineTerminal/>
+                                            <MdOutlineTerminal className='hover:fill-blue-400'/>
                                         </a>
                                     </Link>
                                 </div>
@@ -91,7 +94,7 @@ export default async function Projects() {
                             {/* Text on the left for odd index */}
                             <div className="flex items-center flex-col justify-center w-full md:w-2/5 gap-4 px-4">
                                 <h2 className="text-4xl font-bold">{project.title}</h2>
-                                <p className="line-clamp-3 bg-indigo-200 rounded-md px-4 py-1 text-center">{project.overview}</p>
+                                <p className="line-clamp-3 bg-indigo-300 rounded-md px-4 py-1 text-center dark:bg-indigo-700 mr-[-40px] relative z-20 bg-opacity-50">{project.overview}</p>
                                 <div className="text-2xl flex gap-4">
                                     <Link href={project.link} legacyBehavior>
                                         <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
@@ -102,7 +105,7 @@ export default async function Projects() {
                                     <Link href={project.link} legacyBehavior>
                                         <a  className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 dark:border-white dark:border'
                                             target={'_blank'}>
-                                            <MdOutlineTerminal/>
+                                            <MdOutlineTerminal className='hover:fill-blue-400'/>
                                         </a>
                                     </Link>
                                 </div>
@@ -120,6 +123,9 @@ export default async function Projects() {
 
             </div>
         </div>            
+        <div className="my-10 flex items-center justify-center">
+            <BackButton/>
+        </div>
     </>
     )
 }

@@ -19,7 +19,7 @@ export default function AllProjectsButton() {
             >
                 <Link href="/projects">
                     <button 
-                        className="bg-white px-4 py-2 dark:text-white dark:bg-black"
+                        className=" px-4 py-2 dark:text-white dark:bg-black rounded-lg bg-indigo-100 border border-black dark:border-white"
                         style={buttonStyle}
                         >Show All Projects
                     </button>
