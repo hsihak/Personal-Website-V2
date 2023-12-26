@@ -28,7 +28,7 @@ export default function ThemeButton() {
              onMouseLeave={() => setIsHovered(false)}> 
             <button 
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-                className="relative z-10 bg-slate-400 border border-gray p-2 rounded-lg"
+                className="relative z-10 bg-indigo-100 border border-black p-2 rounded-lg dark:bg-slate-800 dark:border-white"
                 style={buttonStyle}
             >
                 {resolvedTheme === 'dark' ? (

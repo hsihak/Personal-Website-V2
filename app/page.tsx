@@ -7,6 +7,8 @@ import Image from "next/image";
 import { MdEmail } from 'react-icons/md';
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import Link from 'next/link';
+import ProjectCarousel from './components/ProjectCarousel';
+import AllProjectsButton from './components/AllProjectsbutton';
 
 
 export default function Home() {
@@ -21,7 +23,7 @@ export default function Home() {
   };
 
   return (
-    <div className='divide-y divide-gray-500 dark:divide-gray-700 pt-32'>
+    <div className=' pt-12 md:pt-32'>
       <motion.div
         initial={{opacity: 0, scale: 0}}
         animate={{opacity: 1, scale: 1}}
@@ -92,7 +94,10 @@ export default function Home() {
             </div>
             </div>
           </div>
+
         </motion.div>
+        <ProjectCarousel/>
+        <AllProjectsButton/>
     </div>
   )
 }

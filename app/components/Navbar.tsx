@@ -16,7 +16,7 @@ return (
                         <div className="flex justify-between w-full">
                             <div className="flex items-center">
                                 <Link href="/">
-                                    <h1 className="text-3xl font-bold">
+                                    <h1 className="text-3xl font-bold hover:scale-110">
                                         {"{"} H<span className="text-indigo-500 dark:indigo-400">S </span>{"}."}
                                     </h1>
                                 </Link>
@@ -25,19 +25,19 @@ return (
                                 <Link 
                                 href="/" 
                                 prefetch 
-                                className={`${pathname == "/" ? 'border-indigo-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium' : 'border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium'}`}>
+                                className={`${pathname == "/" ? 'border-indigo-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium hover:scale-110' : 'border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium hover:scale-110 hover:bg-indigo-200/30 hover:rounded-lg'}`}>
                                     Home
                                 </Link>
                                 <Link 
                                 href="/about" 
                                 prefetch 
-                                className={`${pathname == "/about" ? 'border-indigo-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium' : 'border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium'}`}>
+                                className={`${pathname == "/about" ? 'border-indigo-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium hover:scale-110' : 'border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium hover:scale-110 hover:bg-indigo-200/30 hover:rounded-lg'}`}>
                                     About
                                 </Link>
                                 <Link 
                                 href="/projects" 
                                 prefetch 
-                                className={`${pathname == "/projects" ? 'border-indigo-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium' : 'border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium'}`}>
+                                className={`${pathname == "/projects" ? 'border-indigo-500 dark:text-white h-full inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium hover:scale-110' : 'border-transparent text-gray-500 dark:text-gray-300 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-lg font-medium hover:scale-110 hover:bg-indigo-200/30 hover:rounded-lg'}`}>
                                     Projects
                                 </Link>
                                 <Themebutton/>
