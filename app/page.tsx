@@ -43,7 +43,7 @@ export default function Home() {
                 <p className="text-2xl md:text-4xl">Based in Waterloo</p>
               </div>
             </div>
-            <div className="grid col-span-2 justify-items-center pt-8 md:pt-0">
+            <div className="grid col-span-2 justify-items-center">
               <Link href='/about'>
                 <Image 
                 src={ProfilePhoto} 

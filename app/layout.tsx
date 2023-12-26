@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body 
-      className={`${roboto.className} bg-indigo-50 text-black dark:bg-[#090908] dark:text-white h-full selection:bg-gray-50 dark:selection:bg-gray-800`}
+      className={`${roboto.className} bg-gradient-to-t from-purple-200 to-indigo-100 text-black dark:from-black dark:to-black dark:text-white h-full selection:bg-gray-50 dark:selection:bg-gray-800`}
       >
         <Provider>
           <Navbar/>
