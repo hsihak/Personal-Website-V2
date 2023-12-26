@@ -63,9 +63,9 @@ export default function About() {
 
       
       <div className='space-y-2 pt-5 pb-8 md:space-x-5'>
-        {/* <h1 className='text-3xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-13'>
+        <h1 className='text-3xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-13 text-center pt-10'>
           About Me
-        </h1> */}
+        </h1>
       </div>
       {userData.map((user, index) => (
         <article key={index} className='items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0'>
@@ -109,13 +109,13 @@ export default function About() {
                 </Link>
             </div>
           </div>
-          {/* <div className='md:text-lg text-gray-800 dark:text-gray-400 mb-2 md:mt-1 col-span-2 lg:pr-8'>
+          <div className='md:text-lg text-gray-800 dark:text-gray-400 mb-2 md:mt-1 col-span-2 lg:pr-8'>
             <div className='font-normal lg:pt-4 pb-8 lg:col-span-2 text-base mx-auto lg:mx-0 grid gap-4'>
               <p>{user.paragraphOne}</p>
               <p>{user.paragraphTwo}</p>
               <p>{user.paragraphThree}</p>
             </div>
-          </div> */}
+          </div>
         </article>
       ))}
       </motion.div>
