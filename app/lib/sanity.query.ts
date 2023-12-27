@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import {client} from '../app/lib/sanity';
+import {client} from './sanity';
 
 export const revalidate = 60;
 

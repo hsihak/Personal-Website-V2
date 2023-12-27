@@ -6,7 +6,7 @@ import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
-import { getAboutInfo } from '@/sanity/sanity.query';
+import { getAboutInfo } from '@/app/lib/sanity.query';
 import { AboutType } from '../types';
 import { SectionHeading } from '../components/SectionHeading';
 

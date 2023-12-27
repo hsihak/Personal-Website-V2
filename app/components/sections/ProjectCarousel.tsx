@@ -5,7 +5,7 @@ import { client } from "../../lib/sanity";
 import BlurImage from "../BlurImage";
 import ProjectButton from "../buttons/Projectbutton";
 import { ProjectType } from '../../types';
-import { getProject } from '@/sanity/sanity.query';
+import { getProject } from '@/app/lib/sanity.query';
 
 export default function ProjectCarousel() {
     const [projects, setProjects] = useState<ProjectType[]>([]);

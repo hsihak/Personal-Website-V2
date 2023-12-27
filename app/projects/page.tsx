@@ -8,7 +8,7 @@ import Link from "next/link";
 import BackButton from "../components/buttons/Backbutton";
 import { SiAdobexd, SiDevpost } from "react-icons/si";
 import { ProjectType } from "../types";
-import { getProject } from "@/sanity/sanity.query";
+import { getProject } from "@/app/lib/sanity.query";
 
 
 export default async function Projects() {
