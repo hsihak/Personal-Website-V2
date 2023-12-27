@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { getAboutInfo } from '@/app/lib/sanity.query';
 import { AboutType } from '../types';
 import { SectionHeading } from '../components/SectionHeading';
+import BackButton from '../components/buttons/Backbutton';
 
 export default function About() {
   const [userData, setUserData] = useState<AboutType[]>([]);
@@ -99,6 +100,9 @@ export default function About() {
           </div>
         </article>
       ))}
+        <div className="my-10 flex items-center justify-center">
+            <BackButton/>
+        </div>
       </motion.div>
     </div>
   );

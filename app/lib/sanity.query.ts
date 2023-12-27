@@ -26,6 +26,7 @@ export async function getExperience() {
         position,
         type,
         company,
+        companyLink,
         location,
         startDate,
         endDate,

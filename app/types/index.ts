@@ -16,6 +16,7 @@ export type ExperienceType = {
     type: string,
     position: string,
     company: string,
+    companyLink: string,
     location: string,
     startDate: string,
     endDate: string,
