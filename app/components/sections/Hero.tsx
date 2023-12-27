@@ -53,7 +53,7 @@ export default function Hero() {
       <div className="grid grid-cols-1 md:grid-cols-5 justify-items-center">
         <div className="grid uppercase col-span-3">
           <div className="grid gap-6">
-            <h2 className=" text-3xl">Hello. I'm</h2>
+            <h2 className=" text-3xl">Hello. I&apos;m</h2>
             <h1 className="text-4xl md:text-7xl font-semibold">Hang 👋</h1>
           </div>
           <div className="grid place-content-center gap-2">
