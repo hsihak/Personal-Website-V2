@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.vertical-timeline-element-content {
+    background-color: 'blue' !important;
+}

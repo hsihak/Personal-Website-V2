@@ -1,53 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { client } from "../lib/sanity";
-import BlurImage from "./BlurImage";
-import ProjectButton from "./Projectbutton";
-
-interface Slug {
-    current: string;
-    _type: string;
-}
-
-interface Data {
-    title: string,
-    overview: string,
-    link: string,
-    _id: string,
-    imageUrl: string,
-    slug: Slug;
-}
-
-export const revalidate = 60;
+import { client } from "../../lib/sanity";
+import BlurImage from "../BlurImage";
+import ProjectButton from "../buttons/Projectbutton";
+import { ProjectType } from '../../types';
+import { getProject } from '@/sanity/sanity.query';
 
 export default function ProjectCarousel() {
-    const [projects, setProjects] = useState<Data[]>([]);
+    const [projects, setProjects] = useState<ProjectType[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const fetchProjects = () => {
-            const query = `*[_type == "project"] {
-                title,
-                overview,
-                link,
-                _id,
-                "imageUrl": image.asset->url,
-                slug
-            }`;
+        async function fetchProjectData() {
+            try {
+                const fetchedProjects = await getProject();
+                setProjects(fetchedProjects);
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        }
 
-            client.fetch(query)
-                .then(data => {
-                    setProjects(data);
-                    setIsLoading(false);
-                })
-                .catch(error => {
-                    console.error("Error fetching projects:", error);
-                    setIsLoading(false);
-                });
-        };
-
-        fetchProjects();
+        fetchProjectData();
     }, []);
 
     const responsive = {
@@ -89,11 +65,9 @@ export default function ProjectCarousel() {
                         </div>
 
                         <div className="p-4 sm:p-6">
-                            <a href={project.link} target="_blank">
-                                <h3 className="text-lg font-medium text-gray-900 dark:text-white">
-                                    {project.title}
-                                </h3>
-                            </a>
+                            <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                                {project.title}
+                            </h3>
                             <p className="line-clamp-3 mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
                                 {project.overview}
                             </p>
