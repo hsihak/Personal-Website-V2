@@ -49,7 +49,7 @@ export default async function Projects() {
  
     const data : Data[] = await getProjects();
 
-    console.log("Test:",data);
+    // console.log("Test:",data);
 
     return (
     <>

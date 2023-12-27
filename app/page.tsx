@@ -9,6 +9,7 @@ import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import Link from 'next/link';
 import ProjectCarousel from './components/ProjectCarousel';
 import AllProjectsButton from './components/AllProjectsbutton';
+import Experience from './components/Experience';
 
 
 export default function Home() {
@@ -98,6 +99,7 @@ export default function Home() {
         </motion.div>
         <ProjectCarousel/>
         <AllProjectsButton/>
+        <Experience/>
     </div>
   )
 }
