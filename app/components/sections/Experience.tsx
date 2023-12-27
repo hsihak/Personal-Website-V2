@@ -9,6 +9,7 @@ import '../../globals.css';
 import { useTheme } from 'next-themes';
 import { MdOutlineWorkHistory } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
+import Link from 'next/link';
 
 function sortByType (x: ExperienceType, y: ExperienceType) {
     if (x.type === 'Work') {
@@ -45,6 +46,7 @@ export default function Experience() {
     }, []);
 
     console.log(education);
+    console.log("This is sorted experiences: ", sortedExperiences);
 
     return (
         <section>
@@ -71,7 +73,13 @@ export default function Experience() {
                             visible={true}
                         >
                             <h3 className="vertical-timeline-element-title text-lg font-semibold">{experience.position}</h3>
-                            <h4 className="vertical-timeline-element-subtitle italic">{experience.location}</h4>
+                            <Link href={experience.companyLink} legacyBehavior>
+                                <a className=' text-blue-500 dark:text-amber-400' target={'_blank'}>
+                                    <h3 className=''>{experience.company}</h3>
+                                </a>
+                            </Link>
+                            <h4 className="vertical-timeline-element-subtitle italic pb-2">{experience.location}</h4>
+                            <hr />
                             <div>
                                 {experience.descriptionLists.map((list, listIndex) => (
                                     <p key={listIndex}>{list}</p>

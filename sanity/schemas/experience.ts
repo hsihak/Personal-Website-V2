@@ -14,9 +14,14 @@ export default {
             title: 'Type',
         },
         {
-            name: 'companty',
+            name: 'company',
             type: 'string',
             title: 'Company',
+        },
+        {
+            name: 'companyLink',
+            type: 'string',
+            title: 'Company-Link',
         },
         {
             name: 'location',
