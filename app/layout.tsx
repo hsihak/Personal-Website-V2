@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Hangsihak Sin',
   description: 'Hangsihak Sin Personal Website',
   icons: {
-    icon: '/favicon-user.png',
+    icon: '/icon.png',
   }
 }
 
