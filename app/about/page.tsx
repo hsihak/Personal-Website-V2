@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import { getAboutInfo } from '@/sanity/sanity.query';
 import { AboutType } from '../types';
+import { SectionHeading } from '../components/SectionHeading';
 
 export default function About() {
   const [userData, setUserData] = useState<AboutType[]>([]);
@@ -44,11 +45,9 @@ export default function About() {
         >
 
       
-      <div className='space-y-2 pt-5 pb-8 md:space-x-5'>
-        <h1 className='text-3xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-13 text-center pt-10'>
-          About Me
-        </h1>
-      </div>
+      <SectionHeading>
+        About Me
+      </SectionHeading>
       {userData.map((user, index) => (
         <article key={index} className='items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0'>
           <div className='flex flex-col items-center pt-8'>
@@ -58,7 +57,7 @@ export default function About() {
               <h3>{user.jobTitle}</h3>
             </div>
             <div className='flex items-center gap-4 text-2xl'>
-              <Link href={'mailto:s.hsihak@gmail.com'} legacyBehavior>
+              <Link href={user.email} legacyBehavior>
                     <a
                       className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
                       target={'_blank'}>
@@ -66,7 +65,7 @@ export default function About() {
                     </a>
                   </Link>
 
-                <Link href={'https://github.com/hsihak'} legacyBehavior>
+                <Link href={user.github} legacyBehavior>
                   <a
                     className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
                     target={'_blank'}>
@@ -74,7 +73,7 @@ export default function About() {
                   </a>
                 </Link>
 
-                <Link href={'https://www.linkedin.com/in/hangsin/'} legacyBehavior>
+                <Link href={user.linkedin} legacyBehavior>
                   <a
                     className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
                     target={'_blank'}>
@@ -82,7 +81,7 @@ export default function About() {
                   </a>
                 </Link>
 
-                <Link href={'https://twitter.com/'} legacyBehavior>
+                <Link href={user.twitter} legacyBehavior>
                   <a
                     className='p-1.5 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400 '
                     target={'_blank'}>

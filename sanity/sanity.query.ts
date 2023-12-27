@@ -24,6 +24,7 @@ export async function getAboutInfo() {
 export async function getExperience() {
     const query = `*[_type == "experience"] {
         position,
+        type,
         company,
         location,
         startDate,
@@ -47,6 +48,22 @@ export async function getProject() {
           _id,
           "imageUrl": image.asset->url,
           slug
+      }`
+
+    const data = await client.fetch(query, {next: {revalidate}});
+
+    return data;
+}
+
+export async function getEducation() {
+    const query = `*[_type == "education"] {
+        programName,
+        school,
+        location,
+        startDate,
+        endDate,
+        courses,
+        activities,
       }`
 
     const data = await client.fetch(query, {next: {revalidate}});

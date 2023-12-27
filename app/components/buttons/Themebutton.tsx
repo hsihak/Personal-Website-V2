@@ -23,7 +23,7 @@ export default function ThemeButton() {
     if (!mounted) return null;
 
     return (
-        <div className="group relative inline-block hover:cursor-pointer"
+        <div className="group relative inline-block hover:cursor-pointer pr-4 md:pr-0"
             onMouseEnter={() => setIsHovered(true)}
              onMouseLeave={() => setIsHovered(false)}> 
             <button 

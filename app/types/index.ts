@@ -1,3 +1,4 @@
+// Query Data type
 
 export type AboutType = {
     name: string;
@@ -12,6 +13,7 @@ export type AboutType = {
 }
 
 export type ExperienceType = {
+    type: string,
     position: string,
     company: string,
     location: string,
@@ -35,4 +37,14 @@ export type ProjectType = {
     _id: string,
     imageUrl: string,
     slug: Slug;
+}
+
+export type EducationType = {
+    programName: string,
+    school: string,
+    location: string,
+    startDate: string,
+    endDate: string,
+    courses: string[],
+    activites: string[],
 }

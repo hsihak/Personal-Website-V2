@@ -26,14 +26,14 @@ export default async function Projects() {
             <div className='items-center space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0'>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-1 lg:gap-16 pt-8">
+            <div className="grid gap-4 sm:grid-cols-1 md:gap-6 lg:grid-cols-1 lg:gap-16 pt-8">
                 
             {data.map((project, index) => (
                 <article key={index} className="flex flex-col md:flex-row w-full relative">
                     {index % 2 === 0 ? (
                         <>
                             {/* Image on the left for even index */}
-                            <div className="h-60 md:h-96 w-3/5 relative border border-gray-400 rounded-md overflow-hidden dark:shadow-gray-700 shadow-indigo-100 transition duration-300 delay-150 hover:delay-200 hover:scale-105">
+                            <div className="h-60 md:h-96 md:w-3/5 relative border border-gray-400 rounded-md overflow-hidden dark:shadow-gray-700 shadow-indigo-100 transition duration-300 delay-150 hover:delay-200 hover:scale-105">
                                 <BlurImage imageSrc={project.imageUrl}/>
                             </div>
 
@@ -41,7 +41,7 @@ export default async function Projects() {
                             
                             <div className="flex items-center flex-col justify-center w-full md:w-2/5 gap-4">
                                 <h2 className="text-4xl font-bold">{project.title}</h2>
-                                <p className="line-clamp-3 bg-indigo-300 rounded-md px-4 py-1 text-center dark:bg-indigo-700 ml-[-40px] relative z-20 bg-opacity-50">{project.overview}</p>
+                                <p className="line-clamp-3 bg-indigo-300 rounded-md px-4 py-1 text-center dark:bg-indigo-700 md:ml-[-40px] relative z-20 bg-opacity-50">{project.overview}</p>
 
                                 <div className="text-2xl flex gap-6">
                                     {/* Github link */}
@@ -92,7 +92,7 @@ export default async function Projects() {
                             {/* Text on the left for odd index */}
                             <div className="flex items-center flex-col justify-center w-full md:w-2/5 gap-4 px-4">
                                 <h2 className="text-4xl font-bold">{project.title}</h2>
-                                <p className="line-clamp-3 bg-indigo-300 rounded-md px-4 py-1 text-center dark:bg-indigo-700 mr-[-40px] relative z-20 bg-opacity-50">{project.overview}</p>
+                                <p className="line-clamp-3 bg-indigo-300 rounded-md px-4 py-1 text-center dark:bg-indigo-700 md:mr-[-40px] relative z-20 bg-opacity-50">{project.overview}</p>
                                 <div className="text-2xl flex gap-4">
                                     {/* Github link */}
                                     {project.githubLink != undefined && (
@@ -138,7 +138,7 @@ export default async function Projects() {
                             </div>
 
                             {/* Image on the right for odd index */}
-                            <div className="h-60 md:h-96 w-3/5 relative border border-gray-400 rounded-md overflow-hidden dark:shadow-gray-700 shadow-indigo-100 transition duration-300 delay-150 hover:delay-200 hover:scale-105 ">
+                            <div className="h-60 md:h-96 md:w-3/5 relative border border-gray-400 rounded-md overflow-hidden dark:shadow-gray-700 shadow-indigo-100 transition duration-300 delay-150 hover:delay-200 hover:scale-105 ">
                                 <BlurImage imageSrc={project.imageUrl}/>
                             </div>
                         </>

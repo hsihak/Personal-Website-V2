@@ -9,6 +9,11 @@ export default {
             title: 'Position',
         },
         {
+            name: 'type',
+            type: 'string',
+            title: 'Type',
+        },
+        {
             name: 'companty',
             type: 'string',
             title: 'Company',
