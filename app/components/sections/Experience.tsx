@@ -2,7 +2,7 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { client } from '../../lib/sanity';
 import { useEffect, useState } from 'react';
-import { getEducation, getExperience } from '@/sanity/sanity.query';
+import { getEducation, getExperience } from '@/app/lib/sanity.query';
 import { EducationType, ExperienceType } from '../../types';
 import { SubSectionHeading } from '../SubSectionHeading';
 import '../../globals.css';

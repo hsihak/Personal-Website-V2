@@ -7,7 +7,7 @@ import { MdEmail } from 'react-icons/md';
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import Link from 'next/link';
 import { AboutType } from '@/app/types';
-import { getAboutInfo } from '@/sanity/sanity.query';
+import { getAboutInfo } from '@/app/lib/sanity.query';
 
 export default function Hero() {
 
