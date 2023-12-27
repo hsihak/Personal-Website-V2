@@ -1,4 +1,4 @@
-import {createClient} from "next-sanity";
+import { createClient } from "next-sanity";
 
 const projectId = 'h6r280s1';
 const dataset = 'production';

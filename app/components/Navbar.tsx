@@ -3,7 +3,7 @@
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Themebutton from "./Themebutton";
+import Themebutton from "./buttons/Themebutton";
 
 export default function Navbar() {
     let pathname = usePathname() || '/';

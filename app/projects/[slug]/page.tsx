@@ -1,5 +1,5 @@
 
-import BackButton from "@/app/components/Backbutton";
+import BackButton from "@/app/components/buttons/Backbutton";
 import BlurImage from "@/app/components/BlurImage";
 import { client } from "@/app/lib/sanity";
 import Link from "next/link";

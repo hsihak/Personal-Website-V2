@@ -1,9 +1,9 @@
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { client } from '../lib/sanity';
+import { client } from '../../lib/sanity';
 import { useEffect, useState } from 'react';
 import { getExperience } from '@/sanity/sanity.query';
-import { ExperienceType } from '../types';
+import { ExperienceType } from '../../types';
 
 export default function Experience() {
     const [experiences, setExperiences] = useState<ExperienceType[]>([]);

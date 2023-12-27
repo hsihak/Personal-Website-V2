@@ -1,55 +1,19 @@
 import Image from "next/image";
 import { client } from "../lib/sanity"
 import BlurImage from "../components/BlurImage";
-import ProjectButton from "../components/Projectbutton";
+import ProjectButton from "../components/buttons/Projectbutton";
 import { BsGithub } from 'react-icons/bs';
 import { MdOutlineTerminal } from "react-icons/md";
 import Link from "next/link";
-import BackButton from "../components/Backbutton";
+import BackButton from "../components/buttons/Backbutton";
 import { SiAdobexd, SiDevpost } from "react-icons/si";
+import { ProjectType } from "../types";
+import { getProject } from "@/sanity/sanity.query";
 
-interface Slug {
-    current: string;
-    _type: string;
-}
-
-interface Data {
-    title: string,
-    overview: string,
-    githubLink: string,
-    demoLink: string,
-    devPostLink: string,
-    prototypeLink: string,
-    _id: string,
-    imageUrl: string,
-    slug: Slug;
-}
-
-async function getProjects() {
-    const query = `*[_type == "project"] {
-        title,
-          overview,
-          githubLink,
-          demoLink,
-          devPostLink,
-          prototypeLink,
-          _id,
-          "imageUrl": image.asset->url,
-          slug
-      }`
-
-      const data = await client.fetch(query);
-
-      return data;
-}
-
-export const revalidate = 60;
 
 export default async function Projects() {
  
-    const data : Data[] = await getProjects();
-
-    // console.log("Test:",data);
+    const data : ProjectType[] = await getProject();
 
     return (
     <>

@@ -5,48 +5,30 @@ import { MdEmail } from 'react-icons/md';
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { client } from '../lib/sanity';
 import { motion } from "framer-motion";
-
-interface Data {
-  name: string;
-  jobTitle: string;
-  email: string;
-  github: string;
-  linkedin: string;
-  twitter: string;
-  paragraphOne: string;
-  paragraphTwo: string;
-  paragraphThree: string;
-}
+import { getAboutInfo } from '@/sanity/sanity.query';
+import { AboutType } from '../types';
 
 export default function About() {
-  const [userData, setUserData] = useState<Data[]>([]);
+  const [userData, setUserData] = useState<AboutType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
-    const fetchUserInfo = async () => {
-      const query = `*[_type == 'about'] {
-        name,
-        jobTitle,
-        email,
-        github,
-        linkedin,
-        twitter,
-        paragraphOne,
-        paragraphTwo,
-        paragraphThree,
-      }`;
-      
+    async function fetchAboutInfo() {
       try {
-        const data = await client.fetch(query);
-        setUserData(data);
+        const fetchedAboutInfo = await getAboutInfo();
+        setUserData(fetchedAboutInfo);
       } catch (error) {
-        console.error('Error fetching user info:', error);
+        console.error("Error fetching about info:", error);
+      } finally {
+        setIsLoading(false);
       }
-    };
+    }
 
-    fetchUserInfo();
+    fetchAboutInfo();
   }, []);
+
 
   console.log('User Info Data: ', userData);
 
