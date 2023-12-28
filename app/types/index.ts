@@ -1,15 +1,16 @@
 // Query Data type
 
 export type AboutType = {
-    name: string;
-    jobTitle: string;
-    email: string;
-    github: string;
-    linkedin: string;
-    twitter: string;
-    paragraphOne: string;
-    paragraphTwo: string;
-    paragraphThree: string;
+    name: string,
+    jobTitle: string,
+    email: string,
+    imageUrl: string,
+    github: string,
+    linkedin: string,
+    twitter: string,
+    paragraphOne: string,
+    paragraphTwo: string,
+    paragraphThree: string,
 }
 
 export type ExperienceType = {
@@ -48,4 +49,8 @@ export type EducationType = {
     endDate: string,
     courses: string[],
     activites: string[],
+}
+
+export type Props = {
+    params: {slug: string}
 }

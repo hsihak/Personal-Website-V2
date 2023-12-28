@@ -4,8 +4,18 @@ import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Themebutton from "./buttons/Themebutton";
+import { useState } from "react";
 
 export default function Navbar() {
+    const [header, setHeader] = useState<boolean>(false);
+
+    const scrollHeader = () => {
+        if (window.screenY >= 20) {
+            setHeader(true);
+        } else {
+            setHeader(false);
+        }
+    }
     let pathname = usePathname() || '/';
 return (
     <Disclosure as="nav">

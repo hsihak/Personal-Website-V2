@@ -19,6 +19,11 @@ export default {
             title: 'Email',
         },
         {
+            name: 'image',
+            type: 'image',
+            title: 'Image',
+        },
+        {
             name: 'github',
             type: 'string',
             title: 'Github',

@@ -5,16 +5,17 @@ import { client } from "../../lib/sanity";
 import BlurImage from "../BlurImage";
 import ProjectButton from "../buttons/Projectbutton";
 import { ProjectType } from '../../types';
-import { getProject } from '@/app/lib/sanity.query';
+import { getProjects } from '@/app/lib/sanity.query';
+import AllProjectsButton from '../buttons/AllProjectsbutton';
 
 export default function ProjectCarousel() {
     const [projects, setProjects] = useState<ProjectType[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         async function fetchProjectData() {
             try {
-                const fetchedProjects = await getProject();
+                const fetchedProjects = await getProjects();
                 setProjects(fetchedProjects);
             } catch (error) {
                 console.error("Error fetching projects:", error);
@@ -76,6 +77,7 @@ export default function ProjectCarousel() {
                     </article>
                 ))}
             </Carousel>
+            <AllProjectsButton/>
             </div>
         </>
     )
