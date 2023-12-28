@@ -12,7 +12,7 @@ export default function ProjectsSkeleton() {
                     </h1>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-1 lg:gap-16 pt-8">
+                <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-1 lg:gap-16 pt-8 animate-pulse">
                     <article className="flex flex-col md:flex-row w-full">
                         <div className="h-60 md:h-96 md:w-3/5 bg-gray-300 rounded-md">
                         </div>
