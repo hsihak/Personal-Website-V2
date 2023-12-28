@@ -9,6 +9,7 @@ import { getProjects } from '@/app/lib/sanity.query';
 import AllProjectsButton from '../buttons/AllProjectsbutton';
 import ScrollTriggerProvider from '../providers/ScrollTriggerProvider';
 
+
 export default function ProjectCarousel() {
     const [projects, setProjects] = useState<ProjectType[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -57,9 +58,8 @@ export default function ProjectCarousel() {
             
             <Carousel responsive={responsive} >
                 {projects.map((project, index) => (
-                    <ScrollTriggerProvider index={index}>
+                    <ScrollTriggerProvider key={index} index={index}>
                         <article 
-                            key={index} 
                             className="overflow-hidden dark:border-zinc-600 rounded-lg border border-gray-100 bg-white shadow-lg dark:bg-black dark:shadow-gray-700 shadow-indigo-100 transition duration-300 delay-150 hover:delay-200 hover:scale-105"
                             style={carouselItemStyle}
                         >
