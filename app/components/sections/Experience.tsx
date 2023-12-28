@@ -4,12 +4,13 @@ import { client } from '../../lib/sanity';
 import { useEffect, useState } from 'react';
 import { getEducation, getExperience } from '@/app/lib/sanity.query';
 import { EducationType, ExperienceType } from '../../types';
-import { SubSectionHeading } from '../SubSectionHeading';
+
 import '../../globals.css';
 import { useTheme } from 'next-themes';
 import { MdOutlineWorkHistory } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
 import Link from 'next/link';
+import { SubSectionHeading } from '../headings/SubSectionHeading';
 
 function sortByType (x: ExperienceType, y: ExperienceType) {
     if (x.type === 'Work') {

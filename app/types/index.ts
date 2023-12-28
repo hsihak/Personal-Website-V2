@@ -54,3 +54,8 @@ export type EducationType = {
 export type Props = {
     params: {slug: string}
 }
+
+export type ScrollTriggerProviderProps = {
+    children: React.ReactNode;
+    index: number;
+};

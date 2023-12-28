@@ -3,7 +3,7 @@
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Themebutton from "./buttons/Themebutton";
+import Themebutton from "../buttons/Themebutton";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -21,7 +21,7 @@ return (
     <Disclosure as="nav">
         {({open}) => (
             <>
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-[7vh]">
+                <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-[7vh]">
                     <div className="flex justify-between h-16">
                         <div className="flex justify-between w-full">
                             <div className="flex items-center">

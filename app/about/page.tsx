@@ -8,8 +8,9 @@ import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import { getAboutInfo } from '@/app/lib/sanity.query';
 import { AboutType } from '../types';
-import { SectionHeading } from '../components/SectionHeading';
+
 import BackButton from '../components/buttons/Backbutton';
+import { SectionHeading } from '../components/headings/SectionHeading';
 
 export default function About() {
   const [userData, setUserData] = useState<AboutType[]>([]);
