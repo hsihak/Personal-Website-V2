@@ -1,5 +1,6 @@
-import HeroSkeleton from "./ui/HeroSkelton";
-import ProjectCarouselSkeleton from "./ui/ProjectCarouselSkelton";
+
+import HeroSkeleton from "./components/skeltons/HeroSkelton";
+import ProjectCarouselSkeleton from "./components/skeltons/ProjectCarouselSkelton";
 
 export default function Loading() {
     return (

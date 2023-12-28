@@ -9,7 +9,7 @@ const LoadingComponent = () => <div>Loading...</div>;
 export default function Home() {
 
   return (
-    <div className=' pt-12 md:pt-32'>
+    <div>
         <Hero/>
         <Project/>
         <Experience/>

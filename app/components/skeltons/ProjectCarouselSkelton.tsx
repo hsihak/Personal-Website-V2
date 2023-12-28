@@ -6,7 +6,7 @@ export default function ProjectCarouselSkeleton() {
     return (
         <div className="flex flex-wrap justify-center pt-52">
             {Array.from({ length: numberOfSkeletonItems }).map((_, index) => (
-                <div key={index} className=" m-2 p-4 max-w-xs h-56 w-full bg-gray-200 rounded-lg shadow-md">
+                <div key={index} className=" m-2 p-4 max-w-screen-2xl h-56 w-full bg-gray-200 rounded-lg shadow-md">
                     <div className="h-40 bg-gray-300 rounded-md"></div>
                     <div className="mt-4 space-y-3">
                         <div className="h-4 bg-gray-300 rounded"></div>

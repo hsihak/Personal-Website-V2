@@ -1,4 +1,5 @@
-import ProjectsSkeleton from "../ui/ProjectsSkelton";
+import ProjectsSkeleton from "../components/skeltons/ProjectsSkelton";
+
 
 export default function Loading () {
     return (
