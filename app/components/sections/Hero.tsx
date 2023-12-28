@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {motion} from "framer-motion";
-import BlurImage from "../BlurImage";
 import ProfilePhoto from '../../../public/Profile-Photo.jpg';
 import Image from "next/image";
 import { MdEmail } from 'react-icons/md';
 import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { IoArrowDownCircleOutline } from "react-icons/io5";
 import Link from 'next/link';
 import { AboutType } from '@/app/types';
 import { getAboutInfo } from '@/app/lib/sanity.query';
@@ -144,8 +144,9 @@ export default function Hero() {
       <footer className="w-full py-4 text-center flex justify-center items-end h-full">
         <motion.div 
           variants={slideInFromBottom}
-          className="px-4 md:px-10 lg:px-20 xl:px-40 2xl:px-60"
+          className="px-4 md:px-10 lg:px-20 xl:px-40 2xl:px-60 flex flex-col items-center"
         >
+          <IoArrowDownCircleOutline className="motion-safe:animate-bounce w-12 h-12 text-indigo-500"/>
           <h2>Check out my projects</h2>
         </motion.div>
       </footer>

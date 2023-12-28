@@ -4,7 +4,7 @@ export default function HeroSkeleton() {
   const userDataSkeleton = [{}]; // Array with an empty object to simulate a single user
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 justify-center pt-24">
+    <div className="grid grid-cols-1 md:grid-cols-5 justify-center pt-24 animate-pulse">
         <div className="grid col-span-3">
             <div className="grid gap-6">
                 <div className="h-8 bg-gray-300 rounded w-3/4 md:w-1/2"></div>

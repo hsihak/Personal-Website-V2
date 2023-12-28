@@ -8,6 +8,7 @@ import { ProjectType } from '../../types';
 import { getProjects } from '@/app/lib/sanity.query';
 import AllProjectsButton from '../buttons/AllProjectsbutton';
 import ScrollTriggerProvider from '../providers/ScrollTriggerProvider';
+import { SubSectionHeading } from '../headings/SubSectionHeading';
 
 
 export default function ProjectCarousel() {
@@ -53,10 +54,11 @@ export default function ProjectCarousel() {
     };
 
     return (
-        <>
-            <div className=''>
-            
-            <Carousel responsive={responsive} >
+        <section>
+            <SubSectionHeading>
+            My Projects
+            </SubSectionHeading>
+            <Carousel responsive={responsive} className='pt-8' >
                 {projects.map((project, index) => (
                     <ScrollTriggerProvider key={index} index={index}>
                         <article 
@@ -81,7 +83,6 @@ export default function ProjectCarousel() {
                 ))}
             </Carousel>
             <AllProjectsButton/>
-            </div>
-        </>
+        </section>
     )
 }

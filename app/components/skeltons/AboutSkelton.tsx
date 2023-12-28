@@ -3,7 +3,7 @@ import React from 'react';
 export default function AboutSkeleton() {
   return (
     <div className='divide-y divide-gray-500 dark:divide-gray-700'>
-        <div className='p-8'>
+        <div className='p-8 animate-pulse'>
           <div className='animate-pulse'>
             <div className='rounded-full bg-gray-300 h-48 w-48 mx-auto'></div>
             <div className='h-6 bg-gray-300 rounded mt-4 w-1/2 mx-auto'></div>
