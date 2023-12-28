@@ -13,7 +13,7 @@ import BackButton from '../components/buttons/Backbutton';
 
 export default function About() {
   const [userData, setUserData] = useState<AboutType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
 
   useEffect(() => {

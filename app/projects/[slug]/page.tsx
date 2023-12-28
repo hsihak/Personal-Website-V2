@@ -8,36 +8,9 @@ import { MdOutlineTerminal } from "react-icons/md";
 import { SiAdobexd } from "react-icons/si";
 import { SiDevpost } from "react-icons/si";
 import { FaUserTie } from "react-icons/fa6";
+import { Props } from "@/app/types";
+import { getProject } from "@/app/lib/sanity.query";
 
-type Props = {
-    params: {slug: string}
-}
-
-
-async function getProject(slug: string) {
-    const query = `*[_type == "project" && slug.current == '${slug}'][0]{
-          title,
-          projectStatus,
-          overview,
-          overviewAuthor,
-          members,
-          date,
-          technologies,
-          "imageUrl": image.asset->url,
-          githubLink,
-          demoLink,
-          devPostLink,
-          prototypeLink,
-          _id,
-          slug
-      }`
-
-      const data = await client.fetch(query);
-
-      return data;
-}
-
-export const revalidate = 60;
 
 export default async function ProjectDetails ({params}: Props) {
     

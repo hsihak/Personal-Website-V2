@@ -8,7 +8,7 @@ type ImageProps = {
 };
 
 export default function BlurImage({ imageSrc }: ImageProps) {
-    const [isLoading, setLoading] = useState(true);
+    const [isLoading, setLoading] = useState<boolean>(true);
 
     return (
             <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">

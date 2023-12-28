@@ -8,13 +8,14 @@ import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import Link from 'next/link';
 import { AboutType } from '@/app/types';
 import { getAboutInfo } from '@/app/lib/sanity.query';
+import { slideInFromLeft, slideInFromRight } from '@/app/utils/motion';
 
 export default function Hero() {
 
     
   const [isHovered, setIsHovered] = useState(false);
   const [userData, setUserData] = useState<AboutType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
 
   useEffect(() => {
@@ -43,43 +44,60 @@ export default function Hero() {
   
   return (
     <motion.div
-    initial={{opacity: 0, scale: 0}}
-    animate={{opacity: 1, scale: 1}}
-    transition={{
-      type: "tween",
-      duration: 0.5,
-    }}
+    initial="hidden"
+    animate="visible"
+    className='flex flex-row items-center justify-center mt-10 w-full z-[20]'
     >
+      {/* Left Content */}
       <div className="grid grid-cols-1 md:grid-cols-5 justify-items-center">
         <div className="grid uppercase col-span-3">
           <div className="grid gap-6">
-            <h2 className=" text-3xl">Hello. I&apos;m</h2>
-            <h1 className="text-4xl md:text-7xl font-semibold">Hang 👋</h1>
+            <motion.span variants={slideInFromLeft(0.5)}>
+              <h2 className=" text-3xl">Hello. I&apos;m</h2>
+            </motion.span>
+            <motion.span variants={slideInFromLeft(0.8)}>
+              <h1 className="text-4xl md:text-7xl font-semibold">Hang 👋</h1>
+            </motion.span>
           </div>
-          <div className="grid place-content-center gap-2">
+          <motion.div 
+          variants={slideInFromLeft(1)}
+          className="grid place-content-center gap-2">
             <p className="text-2xl md:text-4xl">Aspiring <span className=" bg-indigo-300 border border-indigo-800 dark:bg-indigo-600">Full Stack</span> Developer</p>
             <p className="text-2xl md:text-4xl">Based in Waterloo</p>
-          </div>
+          </motion.div>
         </div>
 
+        {/* Right Content */}
         {userData.map((user, index) => (
             <div className="grid col-span-2 justify-items-center" key={index}>
-                <Link href='/about'>
-                    <Image 
-                    src={ProfilePhoto} 
-                    alt={`Profile Photo`} 
-                    className='h-48 w-48 rounded-full object-cover object-top cursor-pointer'
-                    style={imageStyle}
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    />
-                </Link>
-                <h1 className='text-3xl font-bold pt-4'>Hangsihak Sin</h1>
-                <div className='md:text-lg text-gray-800  dark:text-gray-400 mb-2 md:mt-1'>
+                <motion.div
+                variants={slideInFromRight(0.5)}
+                >
+                  <Link href='/about'>
+                      <Image 
+                      src={ProfilePhoto} 
+                      alt={`Profile Photo`} 
+                      className='h-48 w-48 rounded-full object-cover object-top cursor-pointer'
+                      style={imageStyle}
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      />
+                  </Link>
+                </motion.div>
+                <motion.div
+                variants={slideInFromRight(0.8)}
+                >
+                  <h1 className='text-3xl font-bold pt-4'>Hangsihak Sin</h1>
+                </motion.div>
+                <motion.div 
+                variants={slideInFromRight(0.8)}
+                className='md:text-lg text-gray-800  dark:text-gray-400 mb-2 md:mt-1'>
                     <h3>2nd Year Bachelor of Computer Science</h3>
-                </div>
+                </motion.div>
 
-                <div className='flex items-center gap-4 text-2xl'>
+                <motion.div 
+                variants={slideInFromRight(1)}
+                className='flex items-center gap-4 text-2xl'>
                     <Link href={user.email} legacyBehavior>
                         <a
                         className='p-1.5 md:p-2 rounded shadow cursor-pointer hover:scale-110 hover:transition hover:duration-400'
@@ -111,8 +129,8 @@ export default function Hero() {
                         <BsTwitter className=' hover:fill-sky-400' />
                     </a>
                     </Link>
-                </div>
-                </div>
+                </motion.div>
+              </div>
 
         ))}
       </div>

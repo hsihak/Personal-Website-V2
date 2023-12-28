@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react"
 
 export default function AllProjectsButton() {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState<boolean>(false);
 
     const buttonStyle = {
         boxShadow: isHovered ? 'rgb(129, 140, 248) 0px 0px 0px 0px' : 'rgb(129, 140, 248) 6px 5px 0px 0px',

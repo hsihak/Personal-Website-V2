@@ -8,6 +8,7 @@ export async function getAboutInfo() {
         name,
         jobTitle,
         email,
+        "imageUrl": image.asset->url,
         github,
         linkedin,
         twitter,
@@ -38,7 +39,7 @@ export async function getExperience() {
     return data;
 }
 
-export async function getProject() {
+export async function getProjects() {
     const query = `*[_type == "project"] {
         title,
           overview,
@@ -54,6 +55,29 @@ export async function getProject() {
     const data = await client.fetch(query, {next: {revalidate}});
 
     return data;
+}
+
+export async function getProject(slug: string) {
+    const query = `*[_type == "project" && slug.current == '${slug}'][0]{
+          title,
+          projectStatus,
+          overview,
+          overviewAuthor,
+          members,
+          date,
+          technologies,
+          "imageUrl": image.asset->url,
+          githubLink,
+          demoLink,
+          devPostLink,
+          prototypeLink,
+          _id,
+          slug
+      }`
+
+      const data = await client.fetch(query, {next: {revalidate}});
+
+      return data;
 }
 
 export async function getEducation() {
